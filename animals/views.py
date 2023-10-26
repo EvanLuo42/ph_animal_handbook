@@ -5,17 +5,17 @@ from animals.forms import GetAnimalByName
 
 
 def get_all_animals(request):
-    if request.method != 'POST':
+    if not request.method == 'GET':
         return JsonResponse({}, status=405)
 
     return JsonResponse(
-        Animal.animal_to_dictionary(Animal.objects.all()),
+        {'animals': [Animal.animal_to_dictionary(animal) for animal in Animal.objects.all()]},
         status=200
     )
 
 
 def get_animal_by_name(request, name):
-    if request.method != 'GET':
+    if not request.method == 'GET':
         return JsonResponse({}, status=405)
 
     form = GetAnimalByName(data={'name': name})
