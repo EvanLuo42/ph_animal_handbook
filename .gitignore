@@ -5,3 +5,4 @@ desert.sqlite
 static/
 locale/zh_Hans/LC_MESSAGES/django.mo
 db.sqlite3
+.idea
