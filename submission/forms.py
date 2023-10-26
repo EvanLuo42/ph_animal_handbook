@@ -36,5 +36,3 @@ class SubmitAnAnimal(Form):
         if Animal.objects.filter(name=self.animal_name).exists():
             raise fields.ValidationError('ph_animal_handbook.submission.animal_name.exists')
         return self.cleaned_data.get('animal_name')
-
-

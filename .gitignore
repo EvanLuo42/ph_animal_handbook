@@ -4,3 +4,4 @@ desert.sqlite
 */migrations
 static/
 locale/zh_Hans/LC_MESSAGES/django.mo
+db.sqlite3
