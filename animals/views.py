@@ -14,11 +14,11 @@ def get_all_animals(request):
     )
 
 
-def get_animal_by_name(request):
+def get_animal_by_name(request, name):
     if request.method != 'GET':
         return JsonResponse({}, status=405)
 
-    form = GetAnimalByName(request.GET)
+    form = GetAnimalByName(data={'name': name})
 
     if not form.is_valid():
         return JsonResponse({'errors': form.errors}, status=400)

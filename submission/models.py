@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Submission(models):
+class Submission(models.Model):
     id = models.UUIDField(primary_key=True)
     email = models.EmailField()
     animal_name = models.CharField(max_length=30)

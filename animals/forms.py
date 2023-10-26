@@ -14,4 +14,5 @@ class GetAnimalByName(Form):
     def clean_name(self):
         if not Animal.objects.filter(name=self.cleaned_data.get('name')).exists():
             raise fields.ValidationError('ph_animal_handbook.animal.name.not_exists')
+
         return self.cleaned_data.get('name')

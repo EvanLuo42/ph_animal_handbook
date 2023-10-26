@@ -4,6 +4,13 @@ from animals.models import Animal
 
 
 class SubmitAnAnimal(Form):
+    email = fields.EmailField(
+        required=True,
+        error_messages={
+            'required': 'ph_animal_handbook.submission.email.required'
+        }
+    )
+
     animal_name = fields.CharField(
         required=True,
         error_messages={
@@ -31,6 +38,13 @@ class SubmitAnAnimal(Form):
             'required': 'ph_animal_handbook.submission.animal_features.required'
         }
     )
+
+    def clean_email(self):
+        email_suffix = self.cleaned_data.get('email').split('@')[1]
+        if not email_suffix == 'shphschool.com':
+            raise fields.ValidationError('ph_animal_handbook.submission.email.not_school_email')
+
+        return self.cleaned_data.get('email')
 
     def clean_animal_name(self):
         if Animal.objects.filter(name=self.animal_name).exists():

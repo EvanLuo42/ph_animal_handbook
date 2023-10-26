@@ -25,12 +25,14 @@ SECRET_KEY = 'django-insecure-!xq)94)a^pxm$to129qh*0(cs2$@=^t3*op6b49w)0q#!&ei-e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'animals.apps.AnimalsConfig',
+    'submission.apps.SubmissionConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
