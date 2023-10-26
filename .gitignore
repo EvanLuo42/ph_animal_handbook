@@ -1,0 +1,6 @@
+__pycache__
+.DS_Store
+desert.sqlite
+*/migrations
+static/
+locale/zh_Hans/LC_MESSAGES/django.mo
